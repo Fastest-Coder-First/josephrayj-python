@@ -59,7 +59,12 @@ Follow the prompts to enter a username, email (optional), and password for the s
 
 ## User Login for History Saving
 
-If you want to save your history, you need to log in as a user. You can create a user account through the Django registration feature or by using custom logic in your application.
+To save search history, users need to log in to the application. Users can create an account through the Django registration feature 
+
+## Fun Feature: Cat Image and Click Counter
+
+When accessing the Weather Forecasting Application, you will notice a cat PNG image on the left side. If you get bored, you can click on the image, and a counter in the bottom right corner will keep track of the number of clicks. Enjoy the fun!
+
 
 ## Conclusion
 
