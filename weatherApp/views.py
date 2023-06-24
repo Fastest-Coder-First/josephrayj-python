@@ -94,7 +94,8 @@ def search_query_list(request):
 def weather_detail(request, pk):
     search_query = get_object_or_404(SearchQuery, pk=pk)
     apiMetaValues = search_query.apiMetaValues
-    return render(request, 'weatherDetails.html', apiMetaValues)
+    apiMetaValues = search_query.weatherTableByDate
+    return render(request,'weatherDetails.html',context={'apiMetaValues':apiMetaValues,'weatherTableByDate':weatherTableByDate})return render(request, 'weatherDetails.html', {'apiMetaValues'})
 
 
 # create login and signup views
