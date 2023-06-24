@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block extra_styles %}
+<!-- Additional styles specific to the sign-up page -->
+<style>
+    /* CSS for form errors */
+    .has-error .form-control,
+    .has-error .form-select {
+        border-color: #dc3545;
+    }
+
+    .has-error .form-control:focus,
+    .has-error .form-select:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+
+    .has-error .form-check-input {
+        border-color: #dc3545;
+    }
+
+    .has-error .invalid-feedback {
+        display: block;
+        color: #dc3545;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="homepage">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="formlogin">
+                    <h2 class="text-center mb-4">Sign Up</h2>
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group {% if form.village_name.errors %}has-error{% endif %}">
+                                    {{ form.village_name|as_crispy_field }}
+                                    {% if form.village_name.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ form.village_name.errors.0 }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group {% if form.city_name.errors %}has-error{% endif %}">
+                                    {{ form.city_name|as_crispy_field }}
+                                    {% if form.city_name.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ form.city_name.errors.0 }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group {% if form.state_name.errors %}has-error{% endif %}">
+                                    {{ form.state_name|as_crispy_field }}
+                                    {% if form.state_name.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ form.state_name.errors.0 }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group {% if form.country.errors %}has-error{% endif %}">
+                                    {{ form.country|as_crispy_field }}
+                                    {% if form.country.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ form.country.errors.0 }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group {% if form.pin_code.errors %}has-error{% endif %}">
+                                    {{ form.pin_code|as_crispy_field }}
+                                    {% if form.pin_code.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ form.pin_code.errors.0 }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group {% if form.start_date.errors %}has-error{% endif %}">
+                                            {{ form.start_date|as_crispy_field }}
+                                            {% if form.start_date.errors %}
+                                            <div class="invalid-feedback">
+                                                {{ form.start_date.errors.0 }}
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group {% if form.end_date.errors %}has-error{% endif %}">
+                                            {{ form.end_date|as_crispy_field }}
+                                            {% if form.end_date.errors %}
+                                            <div class="invalid-feedback">
+                                                {{ form.end_date.errors.0 }}
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary mt-3" type="submit">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

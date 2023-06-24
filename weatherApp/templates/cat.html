@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #cat {
+            position: absolute;
+            z-index: 9999;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        #count {
+            position: fixed;
+            z-index: 9999;
+            bottom: 0;
+            right: 0;
+            font-size: 12px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="cat" src="https://pngfre.com/wp-content/uploads/cat-104-1000x1024.png" alt="Cat">
+    <span id="count"></span>
+
+    <script>
+        window.onload = function () {
+            var cat = document.getElementById("cat");
+            var countElement = document.getElementById("count");
+            var clickCount = 0;
+
+            cat.addEventListener("click", moveCat);
+
+            function moveCat() {
+                var images = [
+                    "https://www.pngmart.com/files/15/Cat-Vector-PNG-Photos.png",
+                    "https://www.pngmart.com/files/15/Black-Cat-Vector-PNG-Photos.png",
+                    "https://webstockreview.net/images/clipart-cat-pet-12.png",
+                    "https://www.transparentpng.com/thumb/weather/png-weather-images-0.png",
+                    "https://clipart-library.com/img/1817183.png",
+                    "https://i.pinimg.com/originals/4c/b2/68/4cb268da66e7c3bcc9c418b6915a6e34.png"
+                    // Add more image URLs to the list
+                ];
+
+                var randomIndex = Math.floor(Math.random() * images.length);
+                var randomImage = images[randomIndex];
+
+                cat.src = randomImage;
+
+                var maxX = window.innerWidth - cat.clientWidth;
+                var maxY = window.innerHeight - cat.clientHeight;
+
+                var randomX = Math.floor(Math.random() * maxX);
+                var randomY = Math.floor(Math.random() * maxY);
+
+                cat.style.left = randomX + "px";
+                cat.style.top = randomY + "px";
+
+                clickCount++;
+                countElement.textContent = clickCount;
+            }
+        };
+    </script>
+</body>
+
+</html>

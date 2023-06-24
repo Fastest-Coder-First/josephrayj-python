@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+Weather prediction
+{% endblock %}
+
+{% block content %}
+<section class="homepage">
+    <div class="container cardstyle">
+        {% if search_queries|length == 0 %}
+        <h5>no Search history</h5>
+        {% else %}
+        <div class="row">
+            {% for search_query in search_queries %}
+            <div class="col-md-4">
+                <div class="card mt-4">
+                    <div class="card-body" style="background: #87cefa7d;">
+                        <h5 class="card-title">Search Query: {{ search_query.city_name }}</h5>
+                        <p class="card-text">Village Name: {{ search_query.village_name }}</p>
+                        <p class="card-text">State Name: {{ search_query.state_name }}</p>
+                        <p class="card-text">Country: {{ search_query.country }}</p>
+                        <p class="card-text">Start Date: {{ search_query.start_date }}</p>
+                        <p class="card-text">End Date: {{ search_query.end_date }}</p>
+                        <p class="card-text">Search Date: {{ search_query.search_date }}</p>
+                        <a href="{% url 'weather_detail' search_query.pk %}" class="btn btn-primary">View Weather
+                            Detail</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

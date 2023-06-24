@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+Weather predection
+{% endblock %}
+{% block content %}
+<section class="homepage">
+    <div class="container cardstyle">
+        <div class="card mt-4">
+            <div class="card-body" style="background: #87cefa7d;">
+                <h5 class="card-title">Current Weather</h5>
+                <p class="card-text">Latitude: {{ apiMetaValues.latitude }}</p>
+                <p class="card-text">Longitude: {{ apiMetaValues.longitude }}</p>
+                <p class="card-text">Temperature: {{ apiMetaValues.current_weather.temperature }}°F</p>
+                <p class="card-text">Wind Speed: {{ apiMetaValues.current_weather.windspeed }} km/h</p>
+                <p class="card-text">Wind Direction: {{ apiMetaValues.current_weather.winddirection }}°</p>
+                <p class="card-text">Elevation: {{ apiMetaValues.elevation }} m</p>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body" style="background: #87cefa7d;">
+                <h5 class="card-title">Daily Weather</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Max Temperature</th>
+                            <th>Min Temperature</th>
+                            <th>Rainfall</th>
+                            <th>Max Wind Speed</th>
+                            <th>Weather Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in weatherTableByDate %}
+                        <tr>
+                            <td>{{ i.0 }}</td>
+                            <td>{{ i.1 }}°F</td>
+                            <td>{{ i.2 }}°F</td>
+                            <td>{{ i.3 }} mm</td>
+                            <td>{{ i.4 }} km/h</td>
+                            <td>{{ i.5 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

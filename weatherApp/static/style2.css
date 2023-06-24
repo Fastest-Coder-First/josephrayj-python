@@ -1,0 +1,93 @@
+/* Homepage Styling */
+.homepage {
+  background-image: url("https://www.southbaymediation.com/wp-content/uploads/2015/11/blue-sky-with-wisps-of-clouds-blue-background-headerback.jpg");
+  background-size: cover;
+  background-position: center;
+  /* margin: 100px auto; */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+.title {
+  text-align: center;
+}
+
+.title h1 {
+  font-size: 3em;
+  color: white;
+}
+
+.title p {
+  color: white;
+}
+.cardstyle {
+  background: #c8f2ff73;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px;
+  /* max-width: 600px; */
+  margin: auto;
+}
+
+.formdisplay {
+  max-width: 600px;
+  margin: auto;
+  border: 1px solid black;
+  padding: 20px;
+  background: #c8f2ff73;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+
+}
+
+@media (max-width: 767px) {
+  /* Mobile responsiveness */
+  .homepage {
+    margin: 50px auto;
+  }
+
+  .formdis {
+    padding: 10px;
+  }
+}
+
+.homepage {
+  background: linear-gradient(45deg, #00d4ff, #f432b3);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease-in-out infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Add gradient background and animation styles */
+.navbar {
+  background: linear-gradient(45deg, #f3ea9f, #e33dca);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease-in-out infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

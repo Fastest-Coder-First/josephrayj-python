@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+Weather predection
+{% endblock %}
+
+{% block extra_styles %}
+<!-- Additional styles specific to the sign-up page -->
+<style>
+    /* CSS for form errors */
+    .has-error .form-control,
+    .has-error .form-select {
+        border-color: #dc3545;
+    }
+
+    .has-error .form-control:focus,
+    .has-error .form-select:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+
+    .has-error .form-check-input {
+        border-color: #dc3545;
+    }
+
+    .has-error .invalid-feedback {
+        display: block;
+        color: #dc3545;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="homepage">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="formdisplay">
+                    <h2 class="text-center mb-4">Sign Up</h2>
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        {% crispy form %}
+                    </form>
+                    <div class="text-center mt-4">
+                        <p>If you're an New user, <a href="{% url 'signup' %}">signup here</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
